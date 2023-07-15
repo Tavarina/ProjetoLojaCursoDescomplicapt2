@@ -1,0 +1,15 @@
+.header {
+    background-color: #D9D9D9;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .header > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 36px;
+  }
