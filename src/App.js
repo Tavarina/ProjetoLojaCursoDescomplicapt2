@@ -11,6 +11,8 @@ import ProdutoJin from '../src/assets/img/produto5.png';
 import ProdutoJm from '../src/assets/img/produto6.png';
 import ProdutoBts from '../src/assets/img/produto7.png';
 import ProdutoV from '../src/assets/img/produto8.png';
+import CartButton from './components/CartButton/CartButton';
+import Provider from './context/Provider';
 
 
 const productsData = [
@@ -83,7 +85,7 @@ const App = () => {
     }
   }, []);
 
-  const addToCart = product => {
+  const addToCart = (product) => {
     const existingItem = cartItems.find(item => item.id === product.id);
     if (existingItem) {
       const updatedItems = cartItems.map(item => {
@@ -103,6 +105,7 @@ const App = () => {
       setCartItems([...cartItems, newItem]);
     }
   };
+  
 
   useEffect(() => {
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -110,9 +113,14 @@ const App = () => {
 
   return (
     <div className="app">
-       <Header />
+       {/* <Header /> */}
+      
+      <Provider>
       <ProductList products={productsData} addToCart={addToCart} />
       <Cart cartItems={cartItems} />
+      <CartButton cart={cartItems}/>
+      </Provider>
+
     </div>
   );
 };

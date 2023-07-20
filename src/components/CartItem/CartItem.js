@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AppContext from '../../context/AppContext';
+import { BsCartDashFill } from 'react-icons/bs';
+
 
 const CartItem = ({ item }) => {
   const { name, quantity, price } = item;
